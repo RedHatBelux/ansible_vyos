@@ -25,4 +25,6 @@
         interfaces: eth0
       - vlan_id: 102
         interfaces: eth0
-      # purge: yes
+      - vlan_id: 103
+        interfaces: eth0
+# purge: yes
