@@ -1,0 +1,26 @@
+- hosts: vyos1
+  gather_facts: no
+  tasks:
+  - name: configure the pre-login banner
+    vyos.vyos.vyos_banner:
+      banner: pre-login
+      text: |
+        Hello there!
+      state: present
+
+  - vyos.vyos.vyos_facts:
+      gather_subset: all
+      gather_network_resources: all
+    register: result
+
+  - debug:
+      msg: "{{ ansible_host }} is running version {{ result.ansible_facts.ansible_net_version }}"
+
+  - name: Create vlan
+    vyos.vyos.vyos_vlan:
+      aggregate:
+      - vlan_id: 100
+        interfaces: eth0
+      - vlan_id: 101
+        interfaces: eth0
+      # purge: yes
