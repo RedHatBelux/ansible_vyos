@@ -1,4 +1,4 @@
-- hosts: vyos1
+- hosts: vyos
   gather_facts: no
   tasks:
   - name: configure the pre-login banner
