@@ -21,6 +21,6 @@
       aggregate:
       - vlan_id: 100
         interfaces: eth0
-      - vlan_id: 102
+      - vlan_id: 101
         interfaces: eth0
 # purge: yes
